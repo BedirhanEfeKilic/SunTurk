@@ -31,7 +31,6 @@ $bestemmingen  = $bestemmingenQuery->fetchAll();
     <title>SunTurk.com</title></head>
     <style>
 .info {
-    height: 90%;
     width: 90%;
     background: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);    

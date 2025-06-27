@@ -56,6 +56,7 @@ body {
   background-color: #f1f1f1;
   position: fixed;
   height: 100%;
+  overflow-y: auto;
 }
 
 .sidebar h1 {
@@ -84,7 +85,6 @@ div.content {
   justify-content: space-between;
   row-gap: 20px;
   border-radius: 30px
-
 }
 
 .img {
@@ -193,35 +193,40 @@ div.content {
 <body>
 
 <div class="sidebar">
-  <h1 class="active">SunTurk</h1>
-<form>
-<form method="GET" action="">
-  <div>
-    <input type="search" id="search" name="search" class="search" placeholder="Zoek een plek op…" value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>" />
-    <button type="submit" class="search">Search</button>
-  </div>
-</form>
-
-<div class="comment">
-  <h2>Meningen? Ga naar comment</h2>
-  <form action="commentsectie.php" method="post">
-      <button class="comment-knop">Comments</button>
-  </form>
-</div>
-
-<div class="account">
-  <h2>Uitloggen</h2>
-    <form action="logout.php" method="get">
-      <button class="account-knop">uitloggen</button>
+  <div class="top">
+      <h1 class="active">SunTurk</h1>
+    <form>
+    <form method="GET" action="">
+      <div>
+        <input type="search" id="search" name="search" class="search" placeholder="Zoek een plek op…" value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>" />
+        <button type="submit" class="search">Search</button>
+      </div>
     </form>
   </div>
+<div class="bottom">
+  <div class="comment">
+    <h2>Meningen? Ga naar comment</h2>
+    <form action="commentsectie.php" method="post">
+        <button class="comment-knop">Comments</button>
+    </form>
+  </div>
+
+  <div class="account">
+    <h2>Uitloggen</h2>
+      <form action="logout.php" method="get">
+        <button class="account-knop">uitloggen</button>
+      </form>
+    </div>
+  </div>
 </div>
+
+
 
 <div class="content">
     <div class="images">
         <?php while ($row = $bestemmingen->fetch()) : ?>
             <div class="img">
-                <img src="<?= htmlspecialchars($row['foto']) ?>" alt="Foto van bestemming" width="350" height="220">
+                <img src="<?= htmlspecialchars($row['foto']) ?>" alt="Foto van bestemming" width="90%" height="50%">
                 <h2 class="plaats"><?= htmlspecialchars($row['plaats']) ?></h2>
                 <h3 class="stad"><?= htmlspecialchars($row['stad']) ?></h3>
                 <h4 class="activiteit">-<?= htmlspecialchars($row['activiteit1']) ?></h4>
